@@ -20,7 +20,11 @@ module.exports = (sequelize, DataTypes) => {
     {}
   );
   user.associate = function(models) {
-    // associations can be defined here
+    user.hasOne(models.homepage);
+    user.belongsToMany(models.story, {
+      through: "likes",
+      foreignKey: "userId"
+    });
   };
   return user;
 };

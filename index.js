@@ -137,3 +137,9 @@ const { PORT } = require("./config/constants");
 app.listen(PORT, () => {
   console.log(`Listening on port: ${PORT}`);
 });
+const storyRouter = require("./routers/story");
+const homepageRouter = require("./routers/homepage");
+const userRouter = require("./routers/user");
+app.use("/stories", storyRouter);
+app.use("/homepages", homepageRouter);
+app.use("/users", userRouter);
